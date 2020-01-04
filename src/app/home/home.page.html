@@ -1,0 +1,199 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-menu-button color="primary"></ion-menu-button>
+    </ion-buttons>
+
+
+
+    <ion-title>
+      <ion-text color="primary">
+        <ion-text color="primary" class="fw700">MyAfroLink</ion-text>
+      </ion-text>
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button size="small" shape="round" >
+
+         <!-- <ion-icon (click)="close()" name="book"></ion-icon>-->
+          <button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu" mat-icon-button>
+            <mat-icon>more_vert</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="newAdresse()" >
+              <mat-icon>my_location</mat-icon>
+              <span>Nouvelle adresse</span>
+            </button>
+            <button mat-menu-item >
+              <mat-icon>group_work</mat-icon>
+              <span>Groupes d'adresses</span>
+            </button>
+            <button mat-menu-item>
+              <mat-icon>location_searching</mat-icon>
+              <span>Mes adresses</span>
+            </button>
+            <button mat-menu-item >
+              <mat-icon>perm_contact_calendar</mat-icon>
+              <span>Mes contacts</span>
+            </button>
+
+
+          </mat-menu>
+
+
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-toolbar hidden color="dark">
+    <ion-buttons slot="end">
+      <ion-button size="small" shape="round" color="medium" >
+        <ion-icon name="options"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content  >
+<!--  <ion-card class="no-radius" >
+    <ion-item lines="none"
+              style="background-color: whitesmoke; font-family: 'Copperplate Gothic Light'">
+      <ion-label class="ion-text-center"  matRipple>
+
+        <h2  class="fw500 no-margin">
+          <ion-text color="dark">Votre code position actuelle</ion-text>
+        </h2>
+        <h1 color="dark" *ngIf="position">{{getCode(position)}}</h1>
+
+        <button mat-raised-button style="width: 100%" color="dark">Enregistrer cette position</button>
+
+      </ion-label>
+    </ion-item>
+  </ion-card>-->
+
+  <!--
+    <ion-card style="background-color: whitesmoke;">
+     <div class="example-container">
+        <mat-form-field hintLabel="Max 10 characters">
+          <input matInput #input maxlength="10" placeholder="Comment appelle t-on ce lieu?">
+          <mat-hint align="end">{{input.value?.length || 0}}/10</mat-hint>
+        </mat-form-field>
+
+        <mat-form-field hintLabel="Max 10 characters">
+          <input matInput #input2 maxlength="10" placeholder="une legere description du lieu">
+          <mat-hint align="end">{{input2.value?.length || 0}}/10</mat-hint>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-select placeholder="Catégorie">
+            <mat-option value="option">Adresse personnelle</mat-option>
+            <mat-option value="option">Cette adresse peut etre visible par les autres</mat-option>
+            <mat-option value="option"></mat-option>
+
+
+          </mat-select>
+          <mat-hint align="end">Here's the dropdown arrow ^</mat-hint>
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" >Enregistrer</button>
+      </div>
+
+    </ion-card>
+    -->
+
+  <mat-tab-group mat-stretch-tabs backgroundColor="warn">
+    <mat-tab>
+      <ng-template mat-tab-label >
+        <mat-icon class="example-tab-icon">my_location</mat-icon>
+        MY.
+      </ng-template>
+
+
+      <ion-list>
+        <ion-list-header>
+          <b> Mes adresses personnelles </b>
+        </ion-list-header>
+
+        <ion-item *ngFor="let p of positions | async">
+          <ion-avatar slot="start">
+            <img src="../../assets/img/avatarlocate.png">
+          </ion-avatar>
+          <ion-label>
+            <h2>{{p.name? p.name: ''}}</h2>
+            <h3>{{p.code}}</h3>
+            <p>I just upgraded my X-Wing. Next time...</p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+
+    </mat-tab>
+
+    <mat-tab >
+      <ng-template mat-tab-label>
+        <mat-icon class="example-tab-icon">group</mat-icon>
+        GROUP
+      </ng-template>
+      Content 2
+    </mat-tab>
+
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <mat-icon class="example-tab-icon">share</mat-icon>
+        SHARE
+      </ng-template>
+
+      Content 3
+    </mat-tab>
+  </mat-tab-group>
+
+
+
+
+  <ion-card [hidden]="!hid" style="background-color: white">
+    <ion-icon style="margin: 10px;" class="padding" (click)="close()"  name="close" color="dark"></ion-icon>
+    <ion-card-header style="color: white">
+      <ion-card-subtitle>
+        MyAfroLink
+      </ion-card-subtitle>
+      <ion-card-title style="font-family: 'Times New Roman'; --font-weight-bold: 6">Comment ça marche ?</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content class="ion-md-wallet" style="font-size: 18px; --font-weight-bold: 3">
+
+
+
+
+      <ion-item>1- Appuyez sur le menu ci-dessous.</ion-item>
+      <ion-item>2- Sélectionnez l'option Ma position.</ion-item>
+      <ion-item>3- Obenez donc votre code position avec détails.</ion-item> <br>
+      <ion-item>Vous pouvez également consulter l'historique de vos positions.</ion-item>
+
+        <!--<mat-form-field style="width: 100%">
+            <mat-label>Ionites</mat-label>
+            <mat-select [(ngModel)]="ionite" name="ionite">
+                <mat-option value="Simon">Simon</mat-option>
+                <mat-option value="Max">Max</mat-option>
+                <mat-option value="Ben">Ben</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+      <mat-toolbar>test test test</mat-toolbar>-->
+
+
+
+
+
+
+
+
+
+      <!-- ici ca commence -->
+
+
+
+    </ion-card-content>
+  </ion-card>
+
+
+</ion-content>
+<ion-footer style="margin-top: 10px;">
+  <app-test></app-test>
+</ion-footer>

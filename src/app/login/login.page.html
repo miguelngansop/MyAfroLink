@@ -1,0 +1,91 @@
+<ion-content class="animated fadeIn login auth-page">
+  <div class="auth-content" >
+
+    <!-- Logo -->
+    <div   class="animated fadeInDown ion-text-center">
+      <div >
+        <img style="width: 30%; height: 30%; margin-top:7px;" src="./../../../assets/img/favicon.png">
+      </div>
+      <h4 >
+        <ion-text  class="fw700">
+          MyAfroLink
+        </ion-text>
+      </h4>
+    </div>
+
+    <!-- Login form -->
+
+    <form #form="ngForm" style="margin: 20px;" (ngSubmit)="login(form.value)" novalidate>
+      <ion-item  class="animated fadeInUp">
+        <ion-label color="dark" position="floating">
+          <ion-icon name="mail" item-start></ion-icon>
+          Adresse email
+        </ion-label>
+
+        <ion-input type="text"  name="username" ngModel required #username="ngModel"
+                   [class.invalid]="username.errors && username.dirty">
+        </ion-input>
+
+
+      </ion-item>
+      <p ion-text class="text08" *ngIf="username.errors?.required && username.dirty">
+        <ion-text color="warning">
+          Champs requis
+        </ion-text>
+      </p>
+
+      <ion-item  class="animated fadeInUp">
+        <ion-label color="dark"  position="floating">
+          <ion-icon name="lock" item-start></ion-icon>
+          Mot de passe
+        </ion-label>
+
+
+        <!--   <ion-input color="secondary" type="password" formControlName="password"></ion-input> -->
+        <ion-input type="password"  name="password" ngModel required #password="ngModel"
+                   [class.invalid]="password.errors && password.dirty">
+        </ion-input>
+
+      </ion-item>
+      <p ion-text color="warning" class="text08" *ngIf="password.errors?.required && password.dirty">
+        <ion-text color="warning">
+          Champs requis
+        </ion-text>
+      </p>
+
+
+      <div>
+        <ion-button icon-left size="large" expand="full" shape="round" color="dark" type="submit" [disabled]="!form.valid" tappable>
+          <ion-icon name="log-in"></ion-icon>
+          Se connecter
+        </ion-button>
+
+
+      </div>
+    </form>
+
+
+   <!-- <p class="ion-text-center fw700" tappable (click)="forgotPass()" >
+       <ion-text class="ion-text-center" color="dark">Mot de passe oublié?</ion-text>
+    </p>
+-->
+
+    <!-- Other links -->
+    <div class="ion-text-center">
+        <span (click)="signup()" class="paz" tappable >
+          <ion-text >
+            <strong>Creer un compte</strong>
+          </ion-text>
+        </span>
+      <button  class="ion-text-center" style="width: 100%; margin-top: 20px; margin-bottom: 5px;" matRipple mat-icon-button color="primary"><b>Se connecter avec Facebook</b></button>
+      <button style="width: 100%" matRipple  mat-icon-button color="warn"><b>Se connecter avec Google</b></button>
+
+    </div>
+
+
+
+  </div>
+
+</ion-content>
+
+

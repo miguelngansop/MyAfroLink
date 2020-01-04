@@ -1,0 +1,8 @@
+{
+  "name": "ptiMonnaie",
+  "integrations": {
+    "cordova": {},
+    "capacitor": {}
+  },
+  "type": "angular"
+}

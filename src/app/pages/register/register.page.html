@@ -1,0 +1,100 @@
+<ion-content class="animated fadeIn login auth-page">
+  <div class="auth-content" >
+
+    <!-- Logo -->
+    <div   class="animated fadeInDown ion-text-center">
+      <div >
+        <img style="width: 30%; height: 30%; margin-top:7px;" src="./../../../assets/img/favicon.png"  >
+      </div>
+      <h4>
+        <ion-text  class="fw700">
+          MyAfroLink
+        </ion-text>
+      </h4>
+    </div>
+
+    <p class="ion-text-center fw700" color="dark">Nouveau compte</p>
+    <!-- Login form -->
+
+    <form #form="ngForm" style="margin: 20px;" (ngSubmit)="register(form.value)" novalidate>
+
+
+      <ion-item  class="animated fadeInUp">
+        <ion-label color="dark" position="floating">
+          <ion-icon name="call" item-start></ion-icon>
+          Numéro de téléphone
+        </ion-label>
+
+        <ion-input type="number"  name="phone" ngModel required #phone="ngModel"
+                   [class.invalid]="phone.errors && phone.dirty">
+        </ion-input>
+
+      </ion-item>
+
+      <p ion-text class="text08" *ngIf="phone.errors?.required && phone.dirty">
+        <ion-text color="warning">
+          Champs requis
+        </ion-text>
+      </p>
+
+
+
+      <ion-item  class="animated fadeInUp">
+        <ion-label color="dark" position="floating">
+          <ion-icon name="mail" item-start></ion-icon>
+          Adresse email
+        </ion-label>
+
+        <ion-input type="text"  name="email" ngModel required #email="ngModel"
+                   [class.invalid]="email.errors && email.dirty">
+        </ion-input>
+
+      </ion-item>
+
+
+      <ion-item  class="animated fadeInUp">
+        <ion-label color="dark"  position="floating">
+          <ion-icon name="lock" item-start></ion-icon>
+          Mot de passe
+        </ion-label>
+
+
+        <!--   <ion-input color="secondary" type="password" formControlName="password"></ion-input> -->
+        <ion-input type="password"  name="password" ngModel required #password="ngModel"
+                   [class.invalid]="password.errors && password.dirty">
+        </ion-input>
+
+      </ion-item>
+      <p ion-text color="warning" class="text08" *ngIf="password.errors?.required && password.dirty">
+        <ion-text color="warning">
+          Champs requis
+        </ion-text>
+      </p>
+
+
+      <div>
+        <ion-button icon-left size="large" expand="full" shape="round" color="dark" type="submit" [disabled]="!form.valid" tappable>
+          <ion-icon name="log-in"></ion-icon>
+          Creer
+        </ion-button>
+
+
+      </div>
+    </form>
+
+
+    <!-- Other links -->
+    <div class="ion-text-center">
+        <span (click)="signin()" class="paz" tappable>
+          <ion-text >
+            <strong>J'ai déjà un compte</strong>
+          </ion-text>
+        </span>
+    </div>
+
+  </div>
+
+
+</ion-content>
+
+

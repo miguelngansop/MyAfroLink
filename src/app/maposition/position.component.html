@@ -1,0 +1,67 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-button color="primary" (click)="closeModal()">
+        <ion-icon name="close" color="light"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+       Position et code
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="ion-padding">
+  
+  <div>
+    <img  src="./../../assets/img/favicon.png" width="20%" height="20%">
+  </div>
+  
+  <ion-card class="ion-padding" *ngIf="position">
+    <ion-card-title>Votre code position</ion-card-title>
+    <ion-card-subtitle>.......................</ion-card-subtitle>
+    <ion-card-content>
+     <b style="font-family: 'Copperplate Gothic Light'; font-size: 20px; color: #110A3B;" ><i> {{getCode(position)}}</i></b>
+    </ion-card-content>
+    <ion-text>Cette opération a été historisée:</ion-text>
+  </ion-card>
+
+
+  <ion-list *ngIf="position&&details">
+    <ion-item> accuracy :{{position.coords.accuracy}}</ion-item>
+    <ion-item> latitude :{{position.coords.latitude}}</ion-item>
+    <ion-item> longitude :{{position.coords.longitude}}</ion-item>
+    <ion-item *ngIf="position.coords.speed"> speed :{{position.coords.speed}}</ion-item>
+    <ion-item> timestamp :{{position.timestamp}}</ion-item>
+
+
+    <ion-item>
+      <ion-card-content>
+        <h2><b>Comprendre le principe?</b></h2>
+        Aucune adresse ne peut avoir une valeur de latitude supérieure ou égale à 100, donc la partie entiere de cette valeur tient au maximum sur deux caractères. Nous
+        prévoyons deux chiffres apres la virgule pour plus de precison.
+        ça fait (08) chiffres pour latitude et longitude.
+        Cepandant, Nous ne pouvons pas ajouter d'informations supplementaires comme la vitesse et autres, vu que nous n'avons que 10
+        caractères (d'après la spécification).
+        Pour les virgules nous allons remplacer la premiere par <b>L</b> pour <b>LET</b> et l'autre par D pour dire
+        <b>Develop.</b>
+       <b> Let's develop (Ld)</b>
+        l'arrondissement considéré ici, est de 2 chiffres apres la virgule.
+      </ion-card-content>
+    </ion-item>
+  </ion-list>
+
+  <agm-map [latitude]="lat" [longitude]="lng" [zoom]="15">
+    <agm-marker
+            [latitude]="lat"
+            [longitude]="lng"
+            (markerClick)="onMarkerClick()"
+    ></agm-marker>
+  </agm-map>
+
+
+
+
+  <ion-button  style="height: 70px;" expand="full" [disabled]="!position" color="dark"  (click)="detail()">{{titreDetails}}</ion-button>
+</ion-content>

@@ -1,0 +1,64 @@
+<!--
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Mes adresses</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="bg-profile" text-center padding>
+  </div>
+
+  <ion-card class="bg-white ion-margin">
+    <ion-card-content>
+      <h1 margin-bottom>
+        <ion-text color="primary">
+
+        </ion-text>
+      </h1>
+
+
+      <mat-tab-group mat-stretch-tabs class="example-stretched-tabs">
+        <mat-tab label="Publics">
+
+
+        </mat-tab>
+        <mat-tab label="Privés"> Content 2 </mat-tab>
+      </mat-tab-group>
+
+    </ion-card-content>
+  </ion-card>
+
+  <google-map apiKey="AIzaSyCGbd4dWKda3DtpZIKxlHQFQkE_XkbYxtU"></google-map>
+
+  <ion-footer>
+    <button ion-button color="light" full (click)="testMarker()">Test Marker</button>
+  </ion-footer>
+</ion-content>
+
+-->
+
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button color="primary"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Adresses
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <google-map  apiKey="AIzaSyCGbd4dWKda3DtpZIKxlHQFQkE_XkbYxtU"></google-map>
+
+</ion-content>
+
+<ion-footer>
+  <ion-button color="light" full (click)="testMarker()">Test Marker</ion-button>
+</ion-footer>

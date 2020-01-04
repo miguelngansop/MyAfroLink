@@ -1,0 +1,45 @@
+
+
+<ion-fab vertical="bottom" horizontal="center" slot="fixed" class="animated fadeInDown">
+  <ion-fab-button (click)="togglePopupMenu()">
+    <ion-ripple-effect></ion-ripple-effect>
+    <ion-icon color="dark" name="apps"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+
+<div class="popup-menu">
+  <div class="popup-menu-overlay" [ngClass]="{'in': openMenu}"></div>
+  <div class="popup-menu-panel" [ngClass]="{'in': openMenu}">
+    <div class="popup-menu-item">
+      <ion-icon (click)="virement()" name="locate" slot="middle" size="large"></ion-icon>
+      <span><b>Ma position</b></span>
+    </div>
+
+    <div class="popup-menu-item">
+      <ion-icon name="list-box" (click)="histories()" slot="middle" size="large" ></ion-icon>
+      <span>Adresses</span>
+    </div>
+
+    <div class="popup-menu-item">
+      <ion-icon name="list-box" (click)="histories()" slot="middle" size="large" ></ion-icon>
+      <span>Historique</span>
+    </div>
+
+    <div class="popup-menu-item" style="margin-bottom: 3px;">
+      <ion-icon name="share" (click)="histories()" slot="middle" size="large" ></ion-icon>
+      <span>Partages</span>
+    </div>
+
+    <div class="popup-menu-item">
+      <ion-icon name="list-box" (click)="histories()" slot="middle" size="large" ></ion-icon>
+      <span>Historique</span>
+    </div>
+
+    <div class="popup-menu-item">
+      <ion-icon name="list-box" (click)="histories()" slot="middle" size="large" ></ion-icon>
+      <span>Historique</span>
+    </div>
+
+
+  </div>
+</div>

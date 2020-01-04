@@ -1,0 +1,74 @@
+<ion-header>
+  <ion-toolbar color="dark" >
+    <ion-buttons slot="start">
+      <ion-button color="primary" (click)="closeModal()">
+        <ion-icon name="close" color="light"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+      Nouvelle Adresse
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+
+<ion-card >
+
+  <ion-card-header> Nouvelle Adresse </ion-card-header>
+  <ion-card-content>
+    <ion-row>
+
+
+
+      <ion-col size="8" >
+        <button mat-fab color="primary" (click)="takePicture()">
+          <mat-icon >camera_alt</mat-icon>
+        </button>
+      </ion-col>
+
+      <span *ngIf="locationPicture"> une photo prise!</span>
+      <img *ngFor="let img of listofImages"   style="height: 30%; width: 30%;" [src]="img"/>
+
+
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="12">
+        <ion-item>
+          <ion-label position="stacked">Code position</ion-label>
+          <mat-toolbar class="mat-elevation-z6" style="color: #190e60">{{code}}</mat-toolbar>
+        </ion-item>
+      </ion-col>
+
+    </ion-row>
+
+
+    <ion-row>
+      <ion-col size="12" >
+        <ion-item>
+          <ion-label position="stacked">Nom du lieu</ion-label>
+          <ion-input
+                  [(ngModel)]="locationName"
+                  type="text"
+                  placeholder="Comment appelle t-on ce lieu?"
+          ></ion-input>
+        </ion-item>
+      </ion-col>
+
+    </ion-row>
+
+
+
+
+
+    <ion-button
+            color="dark"
+            expand="block"
+            (click)="addAdresse(locationName)"
+            [disabled]="!locationName"
+    >
+      Ajouter l'adresse
+    </ion-button>
+  </ion-card-content>
+</ion-card>
+</ion-content>

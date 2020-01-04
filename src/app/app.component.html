@@ -1,0 +1,55 @@
+
+<ion-app>
+  <ion-split-pane>
+    <ion-menu>
+      <ion-header>
+        <ion-toolbar color="primary" class="user-profile">
+          <ion-item class="ion-margin-bottom">
+            <ion-avatar slot="start" class="user-avatar">
+              <img src="assets/img/favicon.png" style="width: content-box; padding: 4px;">
+            </ion-avatar>
+            <ion-label>
+              <ion-text color="primary" *ngIf="this.fAuth.auth.currentUser">
+                <h3><strong>{{this.fAuth.auth.currentUser.email}}</strong></h3>
+              </ion-text>
+              <ion-text color="primary">
+                <h3>
+                  MyAfroLink
+                </h3>
+              </ion-text>
+              <ion-menu-toggle class="mto" auto-hide="false">
+
+                <a class="text08" tappable (click)="logout()">
+                  <ion-text color="medium">
+                    <ion-icon matRipple name="log-out"></ion-icon>
+                    <strong>Deconnexion</strong>
+                  </ion-text>
+                </a>
+              </ion-menu-toggle>
+            </ion-label>
+          </ion-item>
+
+        </ion-toolbar>
+      </ion-header>
+
+      <ion-content class="bg-profile">
+        <ion-list>
+          <ion-list-header color="dark">
+            <ion-label>Menu</ion-label>
+          </ion-list-header>
+
+          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages">
+            <ion-item [routerLink]="[p.url]" color="primary">
+              <ion-icon slot="start" [name]="p.icon" color="dark"></ion-icon>
+              <ion-label style="color: black">
+                {{p.title}}
+              </ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+
+      </ion-content>
+    </ion-menu>
+    <ion-router-outlet main></ion-router-outlet>
+  </ion-split-pane>
+</ion-app>

@@ -1,0 +1,38 @@
+
+:host {
+
+  ion-item {
+    border-radius: 0;
+    border-bottom: 1px dotted var(--ion-color-);
+  }
+
+  ion-card {
+    &.no-radius {
+      border-radius: 0;
+    }
+    background-size: 20%, 50%;
+    background-repeat: no-repeat;
+    background-position: right;
+
+
+  }
+
+}
+
+.racine{
+
+}
+
+.example-container {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.example-container > * {
+  width: 100%;
+}
+
+.example-tab-icon {
+  margin-right: 0px;
+}

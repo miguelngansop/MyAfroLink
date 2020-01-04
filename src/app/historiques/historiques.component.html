@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar color="primary" color="primary">
+    <ion-buttons slot="start">
+      <ion-button color="primary" (click)="closeModal()">
+        <ion-icon name="close" color="light"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+      Historique des positions
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+
+  <ion-card color="primary">
+    <ion-card-header color="dark" padding>
+      <ion-card-title>Positions</ion-card-title>
+      <ion-text *ngIf="listpositions[0].user" class="ion-padding"> {{listpositions[0].user}}</ion-text>
+      <ion-card-subtitle>Vos 10 dernières positions
+
+      </ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content padding>
+
+    <ion-card color="light" *ngFor="let p of listpositions">
+      <ion-item>
+       <h1>Code : {{p.code}} </h1>
+      </ion-item>
+      <ion-item>
+        Date : {{p.date}}
+      </ion-item>
+      <ion-item>
+        Heure : {{p.time}}
+      </ion-item>
+    </ion-card>
+
+
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

@@ -1,0 +1,7 @@
+{
+  "appId": "com.ousuisje.app",
+  "appName": "OuSuisJe",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www"
+}
